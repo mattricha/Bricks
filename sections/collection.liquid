@@ -1,0 +1,221 @@
+{%- assign collection = collections[section.settings.collection] -%}
+{%- assign masonry_column_lg = section.settings.numColLg -%}
+{%- assign masonry_column_md = section.settings.numColMd -%}
+{%- assign masonry_column_sm = section.settings.numColSm -%}
+{%- assign masonry_gutter = section.settings.gutter -%}
+
+{% paginate collection.products by 9 %}
+
+{% include 'breadcrumb' %}
+
+{% comment %}
+  Use .grid--rev so that the collection tags appear below the products on mobile
+{% endcomment %}
+
+<div class="masonry">
+  <div class="masonry__sizer {{ masonry_column_lg }} {{ masonry_column_md }} {{ masonry_column_sm }}"></div>
+  <div class="gutter__sizer"></div>
+  {% for product in collection.products %}
+  <div class="masonry__item">
+    {% include 'product-grid-item' %}
+  </div>
+  {% endfor %}
+</div>
+
+{% endpaginate %}
+
+{% schema %}
+  {
+    "name": "Featured collection",
+    "class": "index-section",
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Heading",
+        "default": "Featured collection"
+      },
+      {
+        "type": "collection",
+        "id": "collection",
+        "label": "Collection"
+      },
+      {
+        "type": "select",
+        "id": "numColLg",
+        "label": "Number of columns ( desktop )",
+        "default": "masonry-lg-3",
+        "options": [
+          {
+            "value": "masonry-lg-1",
+            "label": "1"
+          },
+          {
+            "value": "masonry-lg-2",
+            "label": "2"
+          },
+          {
+            "value": "masonry-lg-3",
+            "label": "3"
+          },
+          {
+            "value": "masonry-lg-4",
+            "label": "4"
+          },
+          {
+            "value": "masonry-lg-5",
+            "label": "5"
+          },
+          {
+            "value": "masonry-lg-6",
+            "label": "6"
+          },
+          {
+            "value": "masonry-lg-7",
+            "label": "7"
+          },
+          {
+            "value": "masonry-lg-8",
+            "label": "8"
+          },
+          {
+            "value": "masonry-lg-9",
+            "label": "9"
+          },
+          {
+            "value": "masonry-lg-10",
+            "label": "10"
+          }
+        ]
+      },
+      {
+        "type": "select",
+        "id": "numColMd",
+        "label": "Number of columns ( tablet )",
+        "default": "masonry-md-2",
+        "options": [
+          {
+            "value": "masonry-md-1",
+            "label": "1"
+          },
+          {
+            "value": "masonry-md-2",
+            "label": "2"
+          },
+          {
+            "value": "masonry-md-3",
+            "label": "3"
+          },
+          {
+            "value": "masonry-md-4",
+            "label": "4"
+          },
+          {
+            "value": "masonry-md-5",
+            "label": "5"
+          },
+          {
+            "value": "masonry-md-6",
+            "label": "6"
+          },
+          {
+            "value": "masonry-md-7",
+            "label": "7"
+          },
+          {
+            "value": "masonry-md-8",
+            "label": "8"
+          }
+        ]
+      },
+      {
+        "type": "select",
+        "id": "numColSm",
+        "label": "Number of columns ( mobile )",
+        "default": "masonry-sm-1",
+        "options": [
+          {
+            "value": "masonry-sm-1",
+            "label": "1"
+          },
+          {
+            "value": "masonry-sm-2",
+            "label": "2"
+          },
+          {
+            "value": "masonry-sm-3",
+            "label": "3"
+          },
+          {
+            "value": "masonry-sm-4",
+            "label": "4"
+          },
+          {
+            "value": "masonry-sm-5",
+            "label": "5"
+          },
+          {
+            "value": "masonry-sm-6",
+            "label": "6"
+          }
+        ]
+      },
+      {
+        "type": "select",
+        "id": "gutter",
+        "label": "Gutter size",
+        "default": "0",
+        "options": [
+          {
+            "value": "0",
+            "label": "0px"
+          },
+          {
+            "value": "1",
+            "label": "1px"
+          },
+          {
+            "value": "2",
+            "label": "2px"
+          },
+          {
+            "value": "5",
+            "label": "5px"
+          },
+          {
+            "value": "10",
+            "label": "10px"
+          },
+          {
+            "value": "20",
+            "label": "20px"
+          },
+          {
+            "value": "30",
+            "label": "30px"
+          },
+          {
+            "value": "40",
+            "label": "40px"
+          },
+          {
+            "value": "50",
+            "label": "50px"
+          }
+        ]
+      },
+      {
+        "type": "checkbox",
+        "id": "show_vendor",
+        "label": "Show product vendors",
+        "default": false
+      }
+    ],
+    "presets": [
+      {
+        "name": "Featured collection",
+        "category": "Collection"
+      }
+    ]
+  }
+{% endschema %}

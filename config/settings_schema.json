@@ -2,22 +2,55 @@
   {
     "name": "theme_info",
     "logo": "https:\/\/cdn.shopify.com\/s\/files\/1\/0070\/7032\/files\/2010_6_23_Shopify-Green_256x256.jpg",
+    "theme_name": "Bricks",
+    "theme_author": "MR",
+    "theme_version": "1.0.0",
+    "theme_documentation_url": "https:\/\/help.shopify.com\/manual\/using-themes\/sections",
+    "theme_support_url": "https:\/\/support.shopify.com\/"
+  },
+  {
+    "name": "Logo",
     "settings": [
       {
         "type": "header",
-        "content": "Timber Framework"
+        "content": "Logo"
       },
       {
-        "type": "paragraph",
-        "content": "v2.1.0"
+        "type": "image",
+        "id": "logo.png",
+        "label": "Custom logo",
+        "max-width": 450,
+        "max-height": 200,
+        "info": "450 x 200px .png"
       },
       {
-        "type": "paragraph",
-        "content": "Theme settings allow designers to provide an easy way for any user to customize the look and feel of their shop without having to delve into HTML or CSS code. Please see our [help page on theme settings](http:\/\/docs.shopify.com\/themes\/theme-templates\/settings) to learn more about how you can make the theme customizable."
+        "type": "checkbox",
+        "id": "logo_use_image",
+        "label": "Use custom logo"
       },
       {
-        "type": "paragraph",
-        "content": "Review [Timber's documentation](http:\/\/shopify.github.io\/Timber\/) for any development help."
+        "type": "text",
+        "id": "logo_max_width",
+        "label": "Max logo width",
+        "default": "450",
+        "info": "Defined in pixels. Do not add the 'px' unit."
+      },
+      {
+        "type": "header",
+        "content": "Icon"
+      },
+      {
+        "type": "image",
+        "id": "favicon.png",
+        "label": "Custom icon",
+        "max-width": 32,
+        "max-height": 32,
+        "info": "32 x 32px .png required"
+      },
+      {
+        "type": "checkbox",
+        "id": "favicon_enable",
+        "label": "Use custom icon"
       }
     ]
   },
@@ -85,73 +118,6 @@
         "id": "color_footer_social_link",
         "label": "Social media icons",
         "default": "#bbbbbb"
-      }
-    ]
-  },
-  {
-    "name": "Header",
-    "settings": [
-      {
-        "type": "header",
-        "content": "Logo"
-      },
-      {
-        "type": "checkbox",
-        "id": "logo_use_image",
-        "label": "Use custom logo"
-      },
-      {
-        "type": "image",
-        "id": "logo.png",
-        "label": "Custom logo",
-        "max-width": 450,
-        "max-height": 200,
-        "info": "450 x 200px .png"
-      },
-      {
-        "type": "text",
-        "id": "logo_max_width",
-        "label": "Max logo width",
-        "default": "450",
-        "info": "Defined in pixels. Do not add the 'px' unit."
-      },
-      {
-        "type": "header",
-        "content": "Favicon"
-      },
-      {
-        "type": "checkbox",
-        "id": "favicon_enable",
-        "label": "Use custom icon"
-      },
-      {
-        "type": "image",
-        "id": "favicon.png",
-        "label": "Icon",
-        "max-width": 32,
-        "max-height": 32,
-        "info": "32 x 32px .png required"
-      }
-    ]
-  },
-  {
-    "name": "Footer",
-    "settings": [
-      {
-        "type": "checkbox",
-        "id": "footer_social_enable",
-        "label": "Show social media icons"
-      },
-      {
-        "type": "checkbox",
-        "id": "footer_newsletter_enable",
-        "label": "Show newsletter field"
-      },
-      {
-        "type": "text",
-        "id": "newsletter_form_action",
-        "label": "MailChimp form action URL",
-        "info": "[Where do I find my MailChimp form action URL?](http:\/\/docs.shopify.com\/support\/configuration\/store-customization\/where-do-i-get-my-mailchimp-form-action)"
       }
     ]
   },

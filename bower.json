@@ -1,5 +1,5 @@
 {
-  "name": "timber",
+  "name": "bricks",
   "version": "2.2.2",
   "keywords": [
     "shopify",
@@ -23,7 +23,7 @@
   "ignore": [
     ".*"
   ],
-  "homepage": "https://github.com/Shopify/Timber",
+  "homepage": "https://github.com/Shopify/bricks",
   "authors": [
     "Carson Shold <carson.shold@shopify.com>"
   ],

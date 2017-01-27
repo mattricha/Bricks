@@ -7,7 +7,7 @@
     {% comment %}
       If a user has successfully requested a new password, the form.posted_successfully? variable
       is set to true within the 'recover_customer_password' form only. Within that form you'll see
-      the variable 'resetPassword' set to true, which is used to initialize timber.resetPasswordSuccess().
+      the variable 'resetPassword' set to true, which is used to initialize bricks.resetPasswordSuccess().
     {% endcomment %}
     <div class="note form-success" id="ResetSuccess" style="display:none;">
       {{ 'customer.recover_password.success' | t }}
@@ -41,7 +41,7 @@
     </div>
 
     {% comment %}
-      JS shows/hides this form in timber.loginForms()
+      JS shows/hides this form in bricks.loginForms()
     {% endcomment %}
     <div id="RecoverPasswordForm" style="display: none;">
 
@@ -54,7 +54,7 @@
           {{ form.errors | default_errors }}
 
           {% comment %}
-            Assign variable to be used after timber.init() is run in theme.liquid
+            Assign variable to be used after bricks.init() is run in theme.liquid
           {% endcomment %}
           {% if form.posted_successfully? %}
             {% assign resetPassword = true %}

@@ -13,11 +13,33 @@
       "color_primary": "#747474",
       "color_secondary": "#bbb",
       "favicon_enable": false,
-      "footer_newsletter_enable": true,
-      "footer_social_enable": true,
       "logo_use_image": false,
       "social_facebook_link": "",
-      "social_twitter_link": ""
+      "social_twitter_link": "",
+      "sections": {
+        "header": {
+          "type": "header",
+          "settings": {
+          }
+        },
+        "featured-collections": {
+          "type": "collection",
+          "settings": {
+            "collection": "Home page"
+          }
+        },
+        "footer": {
+          "type": "footer",
+          "settings": {
+            "footer_newsletter_enable": true,
+            "footer_social_enable": true,
+            "show_payment_icons": true
+          }
+        }
+      },
+      "content_for_index": [
+        "featured-collections"
+      ]
     }
   }
 }

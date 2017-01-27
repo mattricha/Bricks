@@ -61,11 +61,11 @@ if (!Shopify.formatMoney) {
   };
 }
 
-// Timber functions
-window.timber = window.timber || {};
+// bricks functions
+window.bricks = window.bricks || {};
 
-timber.cacheSelectors = function () {
-  timber.cache = {
+bricks.cacheSelectors = function () {
+  bricks.cache = {
     // General
     $html                    : $('html'),
     $body                    : $(document.body),
@@ -90,20 +90,21 @@ timber.cacheSelectors = function () {
   };
 };
 
-timber.init = function () {
+bricks.init = function () {
   FastClick.attach(document.body);
-  timber.cacheSelectors();
-  timber.accessibleNav();
-  timber.drawersInit();
-  timber.mobileNavToggle();
-  timber.productImageSwitch();
-  timber.responsiveVideos();
-  timber.collectionViews();
-  timber.loginForms();
+  bricks.cacheSelectors();
+  bricks.accessibleNav();
+  bricks.drawersInit();
+  bricks.mobileNavToggle();
+  bricks.productImageSwitch();
+  bricks.responsiveVideos();
+  bricks.collectionViews();
+  bricks.loginForms();
+  bricks.masonry();
 };
 
-timber.accessibleNav = function () {
-  var $nav = timber.cache.$navigation,
+bricks.accessibleNav = function () {
+  var $nav = bricks.cache.$navigation,
       $allLinks = $nav.find('a'),
       $topLevel = $nav.children('li').find('a'),
       $parents = $nav.find('.site-nav--has-dropdown'),
@@ -161,7 +162,7 @@ timber.accessibleNav = function () {
     $el.addClass(activeClass);
 
     setTimeout(function() {
-      timber.cache.$body.on('touchstart', function() {
+      bricks.cache.$body.on('touchstart', function() {
         hideDropdown($el);
       });
     }, 250);
@@ -169,7 +170,7 @@ timber.accessibleNav = function () {
 
   function hideDropdown ($el) {
     $el.removeClass(activeClass);
-    timber.cache.$body.off('touchstart');
+    bricks.cache.$body.off('touchstart');
   }
 
   function addFocus ($el) {
@@ -181,26 +182,26 @@ timber.accessibleNav = function () {
   }
 };
 
-timber.drawersInit = function () {
-  timber.LeftDrawer = new timber.Drawers('NavDrawer', 'left');
+bricks.drawersInit = function () {
+  bricks.LeftDrawer = new bricks.Drawers('NavDrawer', 'left');
   {% if settings.ajax_cart_method == "drawer" %}
-    timber.RightDrawer = new timber.Drawers('CartDrawer', 'right', {
+    bricks.RightDrawer = new bricks.Drawers('CartDrawer', 'right', {
       'onDrawerOpen': ajaxCart.load
     });
   {% endif %}
 };
 
-timber.mobileNavToggle = function () {
-  timber.cache.$mobileSubNavToggle.on('click', function() {
+bricks.mobileNavToggle = function () {
+  bricks.cache.$mobileSubNavToggle.on('click', function() {
     $(this).parent().toggleClass('mobile-nav--expanded');
   });
 };
 
-timber.getHash = function () {
+bricks.getHash = function () {
   return window.location.hash;
 };
 
-timber.productPage = function (options) {
+bricks.productPage = function (options) {
   var moneyFormat = options.money_format,
       variant = options.variant,
       selector = options.selector;
@@ -219,7 +220,7 @@ timber.productPage = function (options) {
     if (variant.featured_image) {
       var newImg = variant.featured_image,
           el = $productImage[0];
-      Shopify.Image.switchImage(newImg, el, timber.switchImage);
+      Shopify.Image.switchImage(newImg, el, bricks.switchImage);
     }
 
     // Select a valid variant if available
@@ -258,25 +259,25 @@ timber.productPage = function (options) {
   }
 };
 
-timber.productImageSwitch = function () {
-  if (timber.cache.$thumbImages.length) {
+bricks.productImageSwitch = function () {
+  if (bricks.cache.$thumbImages.length) {
     // Switch the main image with one of the thumbnails
     // Note: this does not change the variant selected, just the image
-    timber.cache.$thumbImages.on('click', function(evt) {
+    bricks.cache.$thumbImages.on('click', function(evt) {
       evt.preventDefault();
       var newImage = $(this).attr('href');
-      timber.switchImage(newImage, null, timber.cache.$productImage);
+      bricks.switchImage(newImage, null, bricks.cache.$productImage);
     });
   }
 };
 
-timber.switchImage = function (src, imgObject, el) {
+bricks.switchImage = function (src, imgObject, el) {
   // Make sure element is a jquery object
   var $el = $(el);
   $el.attr('src', src);
 };
 
-timber.responsiveVideos = function () {
+bricks.responsiveVideos = function () {
   var $iframeVideo = $('iframe[src*="youtube.com/embed"], iframe[src*="player.vimeo"]');
   var $iframeReset = $iframeVideo.add('iframe#admin_bar_iframe');
 
@@ -294,9 +295,9 @@ timber.responsiveVideos = function () {
   });
 };
 
-timber.collectionViews = function () {
-  if (timber.cache.$changeView.length) {
-    timber.cache.$changeView.on('click', function() {
+bricks.collectionViews = function () {
+  if (bricks.cache.$changeView.length) {
+    bricks.cache.$changeView.on('click', function() {
       var view = $(this).data('view'),
           url = document.URL,
           hasParams = url.indexOf('?') > -1;
@@ -310,42 +311,52 @@ timber.collectionViews = function () {
   }
 };
 
-timber.loginForms = function() {
+bricks.loginForms = function() {
   function showRecoverPasswordForm() {
-    timber.cache.$recoverPasswordForm.show();
-    timber.cache.$customerLoginForm.hide();
+    bricks.cache.$recoverPasswordForm.show();
+    bricks.cache.$customerLoginForm.hide();
   }
 
   function hideRecoverPasswordForm() {
-    timber.cache.$recoverPasswordForm.hide();
-    timber.cache.$customerLoginForm.show();
+    bricks.cache.$recoverPasswordForm.hide();
+    bricks.cache.$customerLoginForm.show();
   }
 
-  timber.cache.$recoverPasswordLink.on('click', function(evt) {
+  bricks.cache.$recoverPasswordLink.on('click', function(evt) {
     evt.preventDefault();
     showRecoverPasswordForm();
   });
 
-  timber.cache.$hideRecoverPasswordLink.on('click', function(evt) {
+  bricks.cache.$hideRecoverPasswordLink.on('click', function(evt) {
     evt.preventDefault();
     hideRecoverPasswordForm();
   });
 
   // Allow deep linking to recover password form
-  if (timber.getHash() == '#recover') {
+  if (bricks.getHash() == '#recover') {
     showRecoverPasswordForm();
   }
 };
 
-timber.resetPasswordSuccess = function() {
-  timber.cache.$passwordResetSuccess.show();
+bricks.resetPasswordSuccess = function() {
+  bricks.cache.$passwordResetSuccess.show();
+};
+
+bricks.masonry = function() {
+  // Initialize masonry
+  $('.masonry').masonry({
+    columnWidth: '.masonry__sizer',
+    gutter: '.gutter__sizer',
+    itemSelector: '.masonry__item',
+    percentPosition: true
+  });
 };
 
 /*============================================================================
   Drawer modules
-  - Docs http://shopify.github.io/Timber/#drawers
+  - Docs http://shopify.github.io/bricks/#drawers
 ==============================================================================*/
-timber.Drawers = (function () {
+bricks.Drawers = (function () {
   var Drawer = function (id, position, options) {
     var defaults = {
       close: '.js-drawer-close',
@@ -402,7 +413,7 @@ timber.Drawers = (function () {
     }
 
     // Notify the drawer is going to open
-    timber.cache.$body.trigger('beforeDrawerOpen.timber', this);
+    bricks.cache.$body.trigger('beforeDrawerOpen.bricks', this);
 
     // Add is-transitioning class to moved elements on open so drawer can have
     // transition for close animation
@@ -437,7 +448,7 @@ timber.Drawers = (function () {
     }, this));
 
     // Notify the drawer has opened
-    timber.cache.$body.trigger('afterDrawerOpen.timber', this);
+    bricks.cache.$body.trigger('afterDrawerOpen.bricks', this);
   };
 
   Drawer.prototype.close = function () {
@@ -446,7 +457,7 @@ timber.Drawers = (function () {
     }
 
     // Notify the drawer is going to close
-    timber.cache.$body.trigger('beforeDrawerClose.timber', this);
+    bricks.cache.$body.trigger('beforeDrawerClose.bricks', this);
 
     // deselect any focused form elements
     $(document.activeElement).trigger('blur');
@@ -465,7 +476,7 @@ timber.Drawers = (function () {
     this.$nodes.page.off('.drawer');
 
     // Notify the drawer is closed now
-    timber.cache.$body.trigger('afterDrawerClose.timber', this);
+    bricks.cache.$body.trigger('afterDrawerClose.bricks', this);
   };
 
   Drawer.prototype.trapFocus = function ($container, eventNamespace) {
@@ -492,5 +503,5 @@ timber.Drawers = (function () {
   return Drawer;
 })();
 
-// Initialize Timber's JS on docready
-$(timber.init);
+// Initialize bricks's JS on docready
+$(bricks.init);

@@ -1,7 +1,7 @@
-Shopify Timber [![Circle CI](https://circleci.com/gh/Shopify/Timber.svg?style=svg)](https://circleci.com/gh/Shopify/Timber)
+Shopify bricks [![Circle CI](https://circleci.com/gh/Shopify/bricks.svg?style=svg)](https://circleci.com/gh/Shopify/bricks)
 =====================
 
-Timber is a theme framework for Shopify that helps you get your store up and running quickly. It provides all required theme templates, a starter set of liquid tags, and some basic styles and modules for you to extend on.
+bricks is a theme framework for Shopify that helps you get your store up and running quickly. It provides all required theme templates, a starter set of liquid tags, and some basic styles and modules for you to extend on.
 
 Styling and customization is left up to you. Some base styles and helpers are included, but there is **no need to remove any code before you start**. Simply download and get designing.
 
@@ -9,20 +9,20 @@ Designing a store for a client? Earn 20% revenue through our <a href="http://www
 
 Ways to Get Started
 ---------------------
-- Download the [latest release](https://github.com/Shopify/Timber/releases)
-- Clone the repo `git clone https://github.com/Shopify/Timber.git`
-- Or install with [Bower](http://bower.io/) `bower install timber`
+- Download the [latest release](https://github.com/Shopify/bricks/releases)
+- Clone the repo `git clone https://github.com/Shopify/bricks.git`
+- Or install with [Bower](http://bower.io/) `bower install bricks`
 
 Documentation
 ---------------------
-Visit the [Timber's Documentation](http://shopify.com/timber) page to find out more about the templates, liquid tags, CSS framework, and JavaScript modules included.
+Visit the [bricks's Documentation](http://shopify.com/bricks) page to find out more about the templates, liquid tags, CSS framework, and JavaScript modules included.
 
-Timber's documentation is hosted on [GitHub Pages](http://pages.github.com/). View the raw files in the [gh-pages branch](https://github.com/Shopify/Timber/tree/gh-pages). Please report any discrepancies, bugs, or requests in [issues](https://github.com/Shopify/Timber/issues).
+bricks's documentation is hosted on [GitHub Pages](http://pages.github.com/). View the raw files in the [gh-pages branch](https://github.com/Shopify/bricks/tree/gh-pages). Please report any discrepancies, bugs, or requests in [issues](https://github.com/Shopify/bricks/issues).
 
 Demo Stores
 ---------------------
-- [Demo Store](https://timber-demo.myshopify.com/): A store setup with some products, blog posts, and customer accounts
-- [Empty Store](https://timber-demo-empty.myshopify.com/): A fresh store, just what you should expect when you install on your new store
+- [Demo Store](https://bricks-demo.myshopify.com/): A store setup with some products, blog posts, and customer accounts
+- [Empty Store](https://bricks-demo-empty.myshopify.com/): A fresh store, just what you should expect when you install on your new store
 
 For a set of demo products to use during development, [download this CSV file](http://www.tetchi.ca/wp-content/uploads/2013/04/products1.csv) and import it on our products page.
 
@@ -67,7 +67,7 @@ All PRs must pass the tests before being merged. Check the test status when you 
 
 Support
 ---------------------
-Get involved with Timber or follow along with updates and news.
+Get involved with bricks or follow along with updates and news.
 
 - Track all issues and feature requests here on GitHub.
 - Follow author [@cshold on Twitter](http://twitter.com/cshold).
@@ -83,7 +83,7 @@ Additional resources
 
 License
 ---------------------
-Timber is released under the [MIT License](LICENSE).
+bricks is released under the [MIT License](LICENSE).
 
 [1]: http://docs.shopify.com/themes
 [2]: https://github.com/Shopify/shopify_theme
